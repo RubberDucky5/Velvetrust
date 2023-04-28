@@ -1,7 +1,7 @@
 
 export class Console {
     constructor() {
-        this._commands = { /* Name: function(command_args) */ };
+        this._commands = { /* Name: function(command_args)->String */ };
 
         this.registerCommand("alert", (args) => {
             alert(args.join(" "));
@@ -20,6 +20,6 @@ export class Console {
         // TODO: make a command parser to allow for multiple commands and more complex patterns like quotes
         command = command.split(" ");
 
-        this._commands[command.shift()](command);
+        return this._commands[command.shift()](command);
     }
 }
