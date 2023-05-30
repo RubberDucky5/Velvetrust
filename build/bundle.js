@@ -51,7 +51,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _core_renderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _core_input_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var _core_fps_flight_cam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _core_player_fps_flight_cam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var _core_bind_handler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _core_console__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
 /* harmony import */ var _core_popout_console__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
@@ -78,9 +78,9 @@ class Application {
 
         this.binds = new _core_bind_handler__WEBPACK_IMPORTED_MODULE_4__.BindHandler(this.console, this.inputState);
 
-        this._fpscam = new _core_fps_flight_cam__WEBPACK_IMPORTED_MODULE_3__.FPSFlightCam(this.renderer.camera, this.inputState, this.console);
+        this._fpscam = new _core_player_fps_flight_cam__WEBPACK_IMPORTED_MODULE_3__.FPSFlightCam(this.renderer.camera, this.inputState, this.console);
 
-        this.consoleGUI = new _core_popout_console__WEBPACK_IMPORTED_MODULE_6__.PopoutConsole(this.console);
+        // this.consoleGUI = new PopoutConsole(this.console);
     }
     render () {
         this._fpscam.update(this.inputState);
@@ -119,7 +119,7 @@ class RenderTool {
         this.scene = new three__WEBPACK_IMPORTED_MODULE_1__.Scene();
         this.camera = new three__WEBPACK_IMPORTED_MODULE_1__.PerspectiveCamera(90, options.width / options.height, 0.01, 1000);
 
-        this.renderer = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderer();
+        this.renderer = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderer({antialias: true});
         this.renderer.setSize(options.width, options.height);
         options.container.appendChild(this.renderer.domElement);
 

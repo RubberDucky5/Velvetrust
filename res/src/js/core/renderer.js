@@ -24,7 +24,7 @@ class RenderTool {
         this.scene = new Scene();
         this.camera = new PerspectiveCamera(90, options.width / options.height, 0.01, 1000);
 
-        this.renderer = new WebGLRenderer();
+        this.renderer = new WebGLRenderer({antialias: true});
         this.renderer.setSize(options.width, options.height);
         options.container.appendChild(this.renderer.domElement);
 
